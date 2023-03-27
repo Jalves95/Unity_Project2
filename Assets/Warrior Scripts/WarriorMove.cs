@@ -14,7 +14,7 @@ public class WarriorMove : MonoBehaviour
     private float timer, attackTime = 1f, speed =5f, camSensitivity = 100f;
     private Vector3 movement;
 
-
+    
     void Update()
     {
         float moveH = Input.GetAxisRaw("Horizontal");
@@ -28,6 +28,7 @@ public class WarriorMove : MonoBehaviour
         Vector3 rotate = new Vector3(0, camX, 0);  
         transform.Rotate(rotate);
 
+        
         if (moveH != 0 || moveV != 0)
         {
             anim.SetBool("Run", true);
