@@ -10,14 +10,17 @@ public class SwordHit : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
         else if (other.name == "Skeleton 2")
         {
             Destroy(other.gameObject);
         }
+
         else if (other.name == "Skeleton 3")
         {
             Destroy(other.gameObject);
         }
+
         else if (other.name == "Skeleton 4")
         {
             Destroy(other.gameObject);

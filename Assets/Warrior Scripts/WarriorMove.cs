@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
+
 
 public class WarriorMove : MonoBehaviour
 {
@@ -8,13 +11,22 @@ public class WarriorMove : MonoBehaviour
     public Camera cam;
     public GameObject swordCollider;
     public UIManager UI;
+    public TMP_Text scoreText;
+
 
 
     private bool attacking = false;
     private float timer, attackTime = 1f, speed =5f, camSensitivity = 100f;
     private Vector3 movement;
+    public int score;
 
-    
+
+    private void Start()
+    {
+                score = 0;
+
+    }
+
     void Update()
     {
         float moveH = Input.GetAxisRaw("Horizontal");
@@ -46,9 +58,17 @@ public class WarriorMove : MonoBehaviour
             attacking = true;
             swordCollider.SetActive(true);
             timer = 0;
+            if(swordCollider == true)
+            {
+                ++score;
+                scoreText.text = "Score: " + score;
+
+            }
+            
+
         }
 
-        if(attacking)
+        if (attacking)
         {
             if (timer >= attackTime)
             {
@@ -56,7 +76,9 @@ public class WarriorMove : MonoBehaviour
                 swordCollider.SetActive(false);
             }
             else
-                timer += Time.deltaTime;
+            { 
+            timer += Time.deltaTime;
+            }
         }
     }
 }
