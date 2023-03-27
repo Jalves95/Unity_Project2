@@ -44,7 +44,7 @@ public class Skeleton_Anim : MonoBehaviour
             Debug.Log("Skeleton 1: Arrived! Point Count = " + pointCount);
         }
 
-        if(pointCount == 10 && !navAgent.isStopped)
+        if(pointCount == 30 && !navAgent.isStopped)
         {
             navAgent.isStopped = true;
             move.SetTrigger("Idle");

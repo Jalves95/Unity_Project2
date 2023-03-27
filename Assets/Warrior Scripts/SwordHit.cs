@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class SwordHit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.name == "Skeleton 1")
+        {
+            Destroy(other.gameObject);
+        }
+        else if (other.name == "Skeleton 2")
+        {
+            Destroy(other.gameObject);
+        }
+        else if (other.name == "Skeleton 3")
+        {
+            Destroy(other.gameObject);
+        }
+        else if (other.name == "Skeleton 4")
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
