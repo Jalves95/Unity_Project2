@@ -29,4 +29,17 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void OnClick(string buttonName)
+    {
+        if (buttonName == "Exit")
+            UnityEditor.EditorApplication.isPlaying = false;
+
+        else if(buttonName == "Unpause")
+        {
+            canvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+        }
+    }
 }

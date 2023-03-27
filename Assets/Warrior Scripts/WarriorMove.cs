@@ -24,6 +24,10 @@ public class WarriorMove : MonoBehaviour
         movement = transform.TransformDirection(movement.normalized * Time.deltaTime * speed);
         transform.position += movement;
 
+        float camX = Input.GetAxis("Mouse X") * camSensitivity * Time.deltaTime;
+        Vector3 rotate = new Vector3(0, camX, 0);  
+        transform.Rotate(rotate);
+
         if (moveH != 0 || moveV != 0)
         {
             anim.SetBool("Run", true);
@@ -39,43 +43,5 @@ public class WarriorMove : MonoBehaviour
         {
             anim.SetTrigger("Attack");
         }
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Time.timeScale == 0)
-            {
-                // unpausing
-                pauseText.SetActive(false);
-                Time.timeScale = 1;
-            }
-            else
-            {
-                // pausing
-                pauseText.SetActive(true);
-                Time.timeScale = 0;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            countDown = true;
-        }
-
-
-        if (countDown) //if countdown is true
-        {
-
-            if (timer < 3)
-            {
-                timer += Time.deltaTime;
-                Debug.Log("Game is paused" + timer);
-            }
-            else
-            {
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
-        }*/
-
     }
 }
