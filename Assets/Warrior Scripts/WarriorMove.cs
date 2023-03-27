@@ -6,7 +6,7 @@ public class WarriorMove : MonoBehaviour
 {
     public Animator anim;
     public Camera cam;
-    public GameObject axeCollider;
+    public GameObject swordCollider;
     public UIManager UI;
 
 
@@ -43,6 +43,20 @@ public class WarriorMove : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && Time.timeScale == 1)
         {
             anim.SetTrigger("Attack");
+            attacking = true;
+            swordCollider.SetActive(true);
+            timer = 0;
+        }
+
+        if(attacking)
+        {
+            if (timer >= attackTime)
+            {
+                attacking = false;
+                swordCollider.SetActive(false);
+            }
+            else
+                timer += Time.deltaTime;
         }
     }
 }

@@ -19,29 +19,14 @@ public class Skeleton_Anim : MonoBehaviour
         move.SetTrigger("Walk");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.W))
-            move.SetTrigger("Walk");
-
-        if (Input.GetKeyDown(KeyCode.R))
-            move.SetTrigger("Run");
-
-        if (Input.GetKeyDown(KeyCode.D))
-            move.SetTrigger("Dead");*/
-
-        //float speed = 10 * Time.deltaTime;
-        //float xAxis = Input.GetAxis("Horizontal") * speed;
-        //float zAxis = Input.GetAxis("Verticalk") * speed;
-        //transform.position += new Vector3(xAxis, 0f, zAxis);
-
         if(navAgent.remainingDistance <= navAgent.stoppingDistance)
         {
             int rand = Random.Range(0, points.Length);
             navAgent.SetDestination(points[rand].position);
             ++pointCount;
-            Debug.Log("Skeleton 1: Arrived! Point Count = " + pointCount);
+            Debug.Log("Skeleton: Arrived On Point = " + pointCount);
         }
 
         if(pointCount == 30 && !navAgent.isStopped)
